@@ -101,16 +101,24 @@
   .publish-line .plabel{font-weight:800;font-size:12px;letter-spacing:.04em;padding:6px 10px;border-radius:999px;background:var(--accent-soft);color:var(--accent-ink)}
   .publish-line a{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-weight:700;text-decoration:underline;text-underline-offset:3px;word-break:break-all}
   /* publish */
-  .publish-card{background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:22px;box-shadow:var(--shadow);display:grid;grid-template-columns:1.1fr .9fr;gap:20px;align-items:start}
-  @media(max-width:760px){.publish-card{grid-template-columns:1fr}}
+  .publish-card{background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:22px;box-shadow:var(--shadow)}
   .publish-card h2{margin:0;font-size:22px;letter-spacing:-.03em;line-height:1.25}
-  .publish-card p{margin:10px 0 0;font-size:14.5px;line-height:1.8;color:var(--ink-2)}
+  .publish-card .publish-intro{margin:10px 0 0;font-size:14.5px;line-height:1.8;color:var(--ink-2);max-width:72ch}
   .publish-card .big-url{display:inline-block;margin-top:14px;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:15px;font-weight:700;color:var(--ink);background:var(--surface-2);border:1px solid var(--line);border-radius:10px;padding:10px 12px;word-break:break-all;text-decoration:none}
   .publish-card .big-url:hover{border-color:var(--line-2)}
-  .publish-steps{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:10px}
-  .publish-steps li{background:var(--surface-2);border:1px solid var(--line);border-radius:14px;padding:12px 14px;font-size:13.5px;line-height:1.7;color:var(--ink-2)}
+  .publish-cols{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:18px}
+  @media(max-width:760px){.publish-cols{grid-template-columns:1fr}}
+  .publish-box{border:1px solid var(--line);border-radius:16px;padding:16px;background:var(--surface-2)}
+  .publish-box h3{margin:0 0 10px;font-size:14px;display:flex;align-items:center;gap:8px}
+  .publish-box h3 .dot{width:22px;height:22px;border-radius:999px;display:grid;place-items:center;font-size:12px;flex:0 0 22px;background:var(--ink);color:var(--bg)}
+  .publish-box.exclude h3 .dot{background:transparent;border:1.5px solid var(--line-2);color:var(--muted)}
+  .publish-box ul{margin:0;padding-left:18px;font-size:13.5px;line-height:1.85;color:var(--ink-2)}
+  .publish-box ul b{color:var(--ink)}
+  .publish-box code, .publish-steps code{font-family:ui-monospace,Menlo,monospace;font-size:12px;background:var(--surface);border:1px solid var(--line);padding:2px 6px;border-radius:6px;word-break:break-all}
+  .publish-steps{margin:18px 0 0;padding:0;list-style:none;display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+  @media(max-width:760px){.publish-steps{grid-template-columns:1fr}}
+  .publish-steps li{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:12px 14px;font-size:13.5px;line-height:1.7;color:var(--ink-2)}
   .publish-steps li b{color:var(--ink)}
-  .publish-steps code{font-family:ui-monospace,Menlo,monospace;font-size:12px;background:var(--surface);border:1px solid var(--line);padding:2px 6px;border-radius:6px;word-break:break-all}
   /* toolbar */
   .toolbar{position:sticky;top:58px;z-index:15;padding:16px 0 12px;background:var(--bg)}
   .toolbar-row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
@@ -133,13 +141,15 @@
   .appicon svg{width:28px;height:28px}
   .card h2{margin:0;font-size:18px;letter-spacing:-.02em;line-height:1.25}
   .repo{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:11.5px;color:var(--muted);margin-top:3px;word-break:break-all}
+  .dist-line{font-size:11.5px;color:var(--muted);margin-top:4px;font-weight:700;letter-spacing:.01em}
+  .dist-line .dist-badge{display:inline-block;padding:2px 7px;border-radius:999px;background:var(--accent-soft);color:var(--accent-ink);margin-right:6px}
   .tagline{font-weight:800;font-size:14px;line-height:1.5;letter-spacing:-.01em}
   .desc{font-size:14px;line-height:1.7;color:var(--ink-2);margin:0}
   .tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:auto}
   .tag{font-size:11.5px;font-weight:700;letter-spacing:.02em;padding:6px 9px;border-radius:999px;background:var(--surface-2);border:1px solid var(--line);color:var(--muted)}
   .tag.cat{color:var(--accent-ink);background:var(--accent-soft);border-color:transparent}
   .card-actions{display:flex;gap:8px;flex-wrap:wrap;padding-top:2px}
-  .btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;text-decoration:none;font-weight:800;font-size:13.5px;padding:0 14px;border-radius:999px;border:1px solid var(--line);background:var(--surface);min-height:44px;cursor:pointer}
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;text-decoration:none;font-weight:800;font-size:13.5px;padding:0 14px;border-radius:999px;border:1px solid var(--line);background:var(--surface);min-height:44px;cursor:pointer;color:var(--ink)}
   .btn.primary{background:var(--ink);color:var(--bg);border-color:var(--ink)}
   .btn.ghost{background:transparent}
   /* sections */
@@ -167,7 +177,7 @@
   dialog::backdrop{background:rgba(10,10,12,.55);backdrop-filter:blur(4px)}
   .modal{background:var(--surface);border:1px solid var(--line);border-radius:24px;padding:22px;box-shadow:0 24px 60px rgba(0,0,0,.25);color:var(--ink)}
   .modal-head{display:flex;gap:14px;align-items:flex-start}
-  .modal-close{margin-left:auto;width:44px;height:44px;border-radius:999px;border:1px solid var(--line);background:var(--surface-2);cursor:pointer;font-size:18px;display:grid;place-items:center;flex:0 0 44px}
+  .modal-close{margin-left:auto;width:44px;height:44px;border-radius:999px;border:1px solid var(--line);background:var(--surface-2);cursor:pointer;font-size:18px;display:grid;place-items:center;flex:0 0 44px;color:var(--ink)}
   .modal h2{margin:0;font-size:22px;letter-spacing:-.02em}
   .modal .leadline{font-weight:800;margin-top:6px}
   .modal p.body{color:var(--ink-2);line-height:1.8;font-size:14.5px}
@@ -185,10 +195,10 @@
     <a class="brand" href="#top"><span class="brand-mark">YH</span><span class="brand-text">Yusuke Hori — Apps</span></a>
     <nav class="topnav" aria-label="ページ内">
       <a href="#apps">アプリ</a>
-      <a href="#publish">公開</a>
+      <a href="#publish">公開方法</a>
       <a href="#install">導入</a>
       <a href="#about">About</a>
-      <a class="gh-btn" href="https://github.com/yusukehori" target="_blank" rel="noopener">GitHub ↗</a>
+      <a class="gh-btn" href="https://github.com/yusukehori/yusukehori.github.io" target="_blank" rel="noopener">公開リポジトリ ↗</a>
     </nav>
   </div>
 </header>
@@ -198,21 +208,21 @@
     <div class="hero-grid">
       <div>
         <h1>自分で使う、<em style="white-space:nowrap">Macアプリ</em>を<br>自分で作る。</h1>
-        <p class="lead">日常の「もう少しこうしたい」を、そのまま形にした macOS 向けの小さなツール集です。オーディオ、蓋閉じ運用、ファイル操作、ルーター管理まで — すべて GitHub で公開する 8 本をここに並べています。</p>
+        <p class="lead">日常の「もう少しこうしたい」を、そのまま形にした macOS 向けの小さなツール集です。オーディオ、蓋閉じ運用、ファイル操作、ルーター管理まで — 8本すべて、配布は1つの公開用リポジトリにまとめています。</p>
         <div class="hero-meta" aria-label="概要">
           <div class="stat"><b>8</b><span>APPS</span></div>
           <div class="stat"><b>4</b><span>オーディオ系</span></div>
-          <div class="stat"><b>macOS</b><span>専用</span></div>
+          <div class="stat"><b>1</b><span>公開用リポジトリ</span></div>
         </div>
         <div class="publish-line">
-          <span class="plabel">GitHub Pages で公開</span>
-          <a href="https://yusukehori.github.io/" target="_blank" rel="noopener">yusukehori.github.io</a>
+          <span class="plabel">配布はここだけ</span>
+          <a href="https://github.com/yusukehori/yusukehori.github.io" target="_blank" rel="noopener">github.com/yusukehori/yusukehori.github.io</a>
         </div>
       </div>
       <aside class="hero-note">
-        <h3>About this site</h3>
-        <p>ダウンロードやソースコードは各アプリの GitHub リポジトリ／Releases から。気になるアプリはカードをタップすると詳細が見られます。作者の GitHub は <a href="https://github.com/yusukehori" target="_blank" rel="noopener">github.com/yusukehori</a> です。</p>
-        <p>このサイトは独自ドメインを使わず、GitHub Pages で公開します。<span class="pages-url">https://yusukehori.github.io/</span></p>
+        <h3>How it's published</h3>
+        <p>アプリごとの開発用リポジトリ（8本）は公開しません。公開するのは紹介サイトと配布を兼ねた、この1リポジトリだけです。</p>
+        <p>そこに載せるのは<strong>実行バイナリとスクリプトのみ</strong>。ソースコードは含まれません。ダウンロードは公開用リポジトリの Releases からどうぞ。<span class="pages-url">サイト： https://yusukehori.github.io/</span></p>
       </aside>
     </div>
   </div>
@@ -239,15 +249,35 @@
 
   <section class="block" id="publish" aria-labelledby="publishTitle">
     <div class="publish-card">
-      <div>
-        <h2 id="publishTitle">GitHub Pages で公開します</h2>
-        <p>独自ドメインは使わず、GitHub の標準ドメインで公開します。紹介サイトは GitHub Pages、アプリ本体の配布は各リポジトリの GitHub Releases — 役割をこの2つに分けます。Sparkle を使う場合の <code style="font-family:ui-monospace,Menlo,monospace;font-size:12.5px">appcast.xml</code> も、同じ Pages 上に置けます。</p>
-        <a class="big-url" href="https://yusukehori.github.io/" target="_blank" rel="noopener">https://yusukehori.github.io/ ↗</a>
+      <h2 id="publishTitle">公開は、1つのリポジトリに一本化</h2>
+      <p class="publish-intro">8本のアプリはそれぞれ非公開（Private）のリポジトリで開発し、そのままにします。外に出るのは公開用リポジトリ <code style="font-family:ui-monospace,Menlo,monospace;font-size:12.5px">yusukehori.github.io</code> だけ — この紹介サイト（GitHub Pages）と、アプリの配布窓口を同じ場所に集約します。</p>
+      <a class="big-url" href="https://github.com/yusukehori/yusukehori.github.io" target="_blank" rel="noopener">github.com/yusukehori/yusukehori.github.io ↗</a>
+      <a class="big-url" href="https://github.com/yusukehori/yusukehori.github.io/releases" target="_blank" rel="noopener" style="margin-left:8px">Releases（配布） ↗</a>
+
+      <div class="publish-cols">
+        <div class="publish-box">
+          <h3><span class="dot">✓</span>公開用リポジトリに載せるもの</h3>
+          <ul>
+            <li><b>実行バイナリ</b> — ビルド済みのアプリ本体（<code>.dmg</code> / <code>.zip</code> / <code>.app</code>）を Releases に添付</li>
+            <li><b>スクリプト</b> — 導入や補助のためのスクリプトのみ</li>
+            <li><b>この紹介サイト</b> — GitHub Pages のページ一式</li>
+            <li>導入手順などの案内文（README）</li>
+          </ul>
+        </div>
+        <div class="publish-box exclude">
+          <h3><span class="dot">✕</span>載せないもの</h3>
+          <ul>
+            <li><b>ソースコード</b> — 8本とも公開しません</li>
+            <li>Xcode プロジェクトやビルド前の開発ファイル一式</li>
+            <li>アプリごとの開発用リポジトリ — すべて非公開のまま、リンクも張りません</li>
+          </ul>
+        </div>
       </div>
+
       <ol class="publish-steps">
-        <li><b>1. 公開用リポジトリを作る</b><br><code>yusukehori / yusukehori.github.io</code> を Public で作成し、このサイトのファイルを置きます。</li>
-        <li><b>2. Pages を有効にする</b><br>リポジトリの Settings → Pages で公開元ブランチを選ぶと、上の URL でそのまま公開されます。カスタムドメイン欄は空のままにします。</li>
-        <li><b>3. 更新は push するだけ</b><br>アプリの追加や説明の変更は、ファイルを更新して push すれば自動で反映されます。</li>
+        <li><b>1. 開発は非公開で</b><br>8本の開発用リポジトリは Private のまま維持し、ソースコードは外部に出しません。</li>
+        <li><b>2. 成果物だけを集約</b><br>ビルドした実行バイナリとスクリプトだけを、公開用リポジトリの Releases に置きます。</li>
+        <li><b>3. 更新は差し替えだけ</b><br>新バージョンはバイナリを差し替えて Release を更新。サイトの説明も同じリポジトリで直します。</li>
       </ol>
     </div>
   </section>
@@ -256,14 +286,14 @@
     <div class="section-head">
       <div>
         <h2>導入の流れ</h2>
-        <p>サイトは GitHub Pages、配布は GitHub Releases です。各リポジトリの Releases から最新版を入手してください。</p>
+        <p>入手先は公開用リポジトリひとつだけです。その Releases から、使いたいアプリの最新版をダウンロードしてください。</p>
       </div>
     </div>
     <div class="steps">
       <div class="step">
         <div class="step-num">1</div>
-        <h3>GitHubで入手する</h3>
-        <p>各カードの「GitHub」からリポジトリを開き、Releases にある <code>.dmg</code>（または <code>.zip</code>）をダウンロードします。</p>
+        <h3>公開用リポジトリで入手する</h3>
+        <p><a href="https://github.com/yusukehori/yusukehori.github.io/releases" target="_blank" rel="noopener" style="font-weight:700;text-decoration:underline;text-underline-offset:3px">yusukehori.github.io の Releases</a> を開き、アプリの <code>.dmg</code>（または <code>.zip</code>）をダウンロードします。スクリプト形式で配るものは、内容を確認してから実行してください。</p>
       </div>
       <div class="step">
         <div class="step-num">2</div>
@@ -289,16 +319,18 @@
       <div class="about-card">
         <h3>Yusuke Hori</h3>
         <p>東京を拠点に、自分の Mac 環境を快適にするためのツールを個人開発しています。Claude や Codex といった AI と一緒に作ったアプリが中心で、「市販品ではちょうど合わない」小さな不便を解消することを目指しています。</p>
-        <p style="margin-top:10px"><a href="https://github.com/yusukehori" target="_blank" rel="noopener" style="font-weight:800;text-decoration:underline;text-underline-offset:3px">GitHub — @yusukehori ↗</a></p>
+        <p style="margin-top:10px"><a href="https://github.com/yusukehori/yusukehori.github.io" target="_blank" rel="noopener" style="font-weight:800;text-decoration:underline;text-underline-offset:3px">公開用リポジトリ — yusukehori.github.io ↗</a></p>
       </div>
       <div class="about-card">
         <h3>このサイトのアプリについて</h3>
         <ul>
           <li>すべて macOS 向けの個人開発アプリです</li>
-          <li>ソースと配布は GitHub リポジトリが正本です</li>
-          <li>このサイトは GitHub Pages（<a href="https://yusukehori.github.io/" target="_blank" rel="noopener" style="font-weight:700;text-decoration:underline;text-underline-offset:3px">yusukehori.github.io</a>）で公開します — 独自ドメインは使いません</li>
+          <li>アプリごとの開発用リポジトリ（8本）は非公開です</li>
+          <li>公開と配布は <a href="https://github.com/yusukehori/yusukehori.github.io" target="_blank" rel="noopener" style="font-weight:700;text-decoration:underline;text-underline-offset:3px">yusukehori.github.io</a> の1リポジトリに一本化しています</li>
+          <li>公開するのは実行バイナリとスクリプトのみ — ソースコードは載せません</li>
+          <li>このサイトは GitHub Pages（<a href="https://yusukehori.github.io/" target="_blank" rel="noopener" style="font-weight:700;text-decoration:underline;text-underline-offset:3px">yusukehori.github.io</a>）で公開しています — 独自ドメインは使いません</li>
           <li>特にオーディオ系は、愛用する DAP／ヘッドホン環境から生まれています</li>
-          <li>不具合や要望は各リポジトリの Issues へどうぞ</li>
+          <li>不具合や要望は公開用リポジトリの Issues へどうぞ</li>
         </ul>
       </div>
     </div>
@@ -309,7 +341,7 @@
   <div class="wrap">
     <span>© 2026 Yusuke Hori — Personal macOS Apps</span>
     <span>Hosted on GitHub Pages — <a href="https://yusukehori.github.io/" target="_blank" rel="noopener" style="font-weight:700">yusukehori.github.io ↗</a></span>
-    <span><a href="https://github.com/yusukehori" target="_blank" rel="noopener" style="font-weight:700">github.com/yusukehori ↗</a></span>
+    <span><a href="https://github.com/yusukehori/yusukehori.github.io" target="_blank" rel="noopener" style="font-weight:700">公開用リポジトリ ↗</a></span>
   </div>
 </footer>
 
@@ -330,21 +362,23 @@
       <ul id="dialogFeatures"></ul>
     </div>
     <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:16px">
-      <a class="btn primary" id="dialogGithub" href="#" target="_blank" rel="noopener">GitHubでリポジトリを見る ↗</a>
-      <a class="btn" id="dialogReleases" href="#" target="_blank" rel="noopener">Releases を見る</a>
+      <a class="btn primary" id="dialogDownload" href="https://github.com/yusukehori/yusukehori.github.io/releases" target="_blank" rel="noopener">Releases で入手する ↗</a>
+      <a class="btn" id="dialogRepoLink" href="https://github.com/yusukehori/yusukehori.github.io" target="_blank" rel="noopener">公開用リポジトリを見る</a>
       <button class="btn ghost" id="closeDialog2">閉じる</button>
     </div>
-    <p style="font-size:12.5px;color:var(--muted);margin:14px 0 0;line-height:1.6">※ ダウンロード可否や最新バージョンは、リンク先の GitHub リポジトリ／Releases の表示が最新です。</p>
+    <p style="font-size:12.5px;color:var(--muted);margin:14px 0 0;line-height:1.6">※ このアプリの開発用リポジトリは非公開で、ソースコードは公開していません。ダウンロードできるのは実行バイナリ／スクリプトのみで、最新版は公開用リポジトリの Releases が正です。</p>
   </div>
 </dialog>
 
 <script>
+const PUBLIC_REPO = "https://github.com/yusukehori/yusukehori.github.io";
+const RELEASES_URL = PUBLIC_REPO + "/releases";
+
 const APPS = [
   {
     id:"explorer",
     name:"Explorer for Mac",
-    repo:"Explorer_for_Mac",
-    url:"https://github.com/yusukehori/Explorer_for_Mac",
+    pkg:"Explorer_for_Mac",
     cat:"workspace", catLabel:"ファイル・作業環境",
     tagline:"Finderとは違う、もうひとつのファイル操作。",
     desc:"Windowsのエクスプローラーのような感覚で Mac のファイルを扱いたい — そんな発想から生まれたファイルマネージャー。フォルダを辿りながらの整理や移動を、Finderとは異なる操作感で行えます。",
@@ -356,8 +390,7 @@ const APPS = [
   {
     id:"power",
     name:"Power ON Keeper",
-    repo:"Power_ON_Keeper",
-    url:"https://github.com/yusukehori/Power_ON_Keeper",
+    pkg:"Power_ON_Keeper",
     cat:"system", catLabel:"システム",
     tagline:"蓋を閉じても、Macを止めない。",
     desc:"MacBookの蓋を閉じてもスリープさせず、常時稼働を保つためのユーティリティ。蓋閉じ＋仮想ディスプレイでの運用や、閉じたままサーバー的に使い続けたい場面のために作られました。",
@@ -369,8 +402,7 @@ const APPS = [
   {
     id:"bpp",
     name:"Bit-Perfect Player",
-    repo:"Bit-Perfect-Player",
-    url:"https://github.com/yusukehori/Bit-Perfect-Player",
+    pkg:"Bit-Perfect-Player",
     cat:"audio", catLabel:"オーディオ",
     tagline:"音源をそのまま、ビットパーフェクト再生。",
     desc:"サンプリングレートの変換などを挟まず、音源データをそのまま DAC へ渡すことを目指したオーディオプレーヤー。手持ちの音源を、余計な加工なしで聴くための再生環境です。",
@@ -382,8 +414,7 @@ const APPS = [
   {
     id:"ldac",
     name:"LDAC enabler for Mac",
-    repo:"LDAC-enabler-for-Mac",
-    url:"https://github.com/yusukehori/LDAC-enabler-for-Mac",
+    pkg:"LDAC-enabler-for-Mac",
     cat:"audio", catLabel:"オーディオ",
     tagline:"MacのBluetoothで、LDACを使えるように。",
     desc:"macOS標準では選べない LDAC コーデックを、対応するヘッドホン／イヤホンで使えるようにするためのツール。Macでもワイヤレスで高音質に聴きたい、というニーズから生まれました。",
@@ -395,8 +426,7 @@ const APPS = [
   {
     id:"streamer",
     name:"bitperfect-streamer",
-    repo:"bitperfect-streamer",
-    url:"https://github.com/yusukehori/bitperfect-streamer",
+    pkg:"bitperfect-streamer",
     cat:"audio", catLabel:"オーディオ",
     tagline:"ストリーミングも、ビットパーフェクトに。",
     desc:"ローカルファイルだけでなく、ストリーミング再生でも音質にこだわるためのビットパーフェクト指向のツール。普段使いのストリーミングを、より良い音で楽しむための試みです。",
@@ -408,8 +438,7 @@ const APPS = [
   {
     id:"volumes",
     name:"App Sound Volumes",
-    repo:"App_Sound_Volumes",
-    url:"https://github.com/yusukehori/App_Sound_Volumes",
+    pkg:"App_Sound_Volumes",
     cat:"audio", catLabel:"オーディオ",
     tagline:"アプリごとに、音量を分ける。",
     desc:"アプリケーション単位で音量を個別に調整できるボリュームコントロール。音楽は小さく、会議は大きく — macOS標準ではできないアプリ別音量を実現します。",
@@ -421,8 +450,7 @@ const APPS = [
   {
     id:"nc3",
     name:"NC3 Utility for Mac",
-    repo:"NC3_Utility_for_Mac",
-    url:"https://github.com/yusukehori/NC3_Utility_for_Mac",
+    pkg:"NC3_Utility_for_Mac",
     cat:"system", catLabel:"システム",
     tagline:"NC3ルーターを、Macから見守る。",
     desc:"モバイルルーター NC3 のための Mac 向けユーティリティ。ルーターの状態確認や操作を、わざわざルーター本体やスマホを触らずに Mac から行えるようにするためのツールです。",
@@ -434,8 +462,7 @@ const APPS = [
   {
     id:"focus",
     name:"Focus Wallpaper",
-    repo:"Focus_Wallpaper",
-    url:"https://github.com/yusukehori/Focus_Wallpaper",
+    pkg:"Focus_Wallpaper",
     cat:"workspace", catLabel:"ファイル・作業環境",
     tagline:"集中のための、壁紙。",
     desc:"作業への集中を助けるデスクトップ環境づくりのための、壁紙ユーティリティ。気分や作業内容に合わせて壁紙を切り替え、デスクトップそのものを集中スイッチとして使う発想です。",
@@ -460,7 +487,7 @@ function cardHTML(app){
       <div class="appicon" style="background:${app.color}">${app.icon}</div>
       <div style="min-width:0">
         <h2>${app.name}</h2>
-        <div class="repo">yusukehori / ${app.repo}</div>
+        <div class="dist-line"><span class="dist-badge">バイナリ配布</span>公開用リポジトリの Releases から</div>
       </div>
     </div>
     <div class="tagline">${app.tagline}</div>
@@ -471,7 +498,7 @@ function cardHTML(app){
     </div>
     <div class="card-actions">
       <button class="btn primary" data-action="detail" data-id="${app.id}">詳細を見る</button>
-      <a class="btn" href="${app.url}" target="_blank" rel="noopener" onclick="event.stopPropagation()">GitHub ↗</a>
+      <a class="btn" href="${RELEASES_URL}" target="_blank" rel="noopener" onclick="event.stopPropagation()">Releases で入手 ↗</a>
     </div>
   </article>`;
 }
@@ -480,13 +507,12 @@ function render(){
   const q = (qInput.value||'').trim().toLowerCase();
   const filtered = APPS.filter(app=>{
     const okCat = currentFilter==='all' || app.cat===currentFilter;
-    const hay = (app.name+' '+app.repo+' '+app.tagline+' '+app.desc+' '+app.tags.join(' ')+' '+app.catLabel).toLowerCase();
+    const hay = (app.name+' '+app.pkg+' '+app.tagline+' '+app.desc+' '+app.tags.join(' ')+' '+app.catLabel).toLowerCase();
     return okCat && (!q || hay.includes(q));
   });
   grid.innerHTML = filtered.map(cardHTML).join('');
   empty.classList.toggle('show', filtered.length===0);
   countLine.textContent = filtered.length===APPS.length ? `${APPS.length} 本のアプリを表示中` : `${filtered.length} / ${APPS.length} 本を表示中`;
-  // wire cards
   grid.querySelectorAll('.card').forEach(el=>{
     el.addEventListener('click', ()=> openDetail(el.dataset.id));
     el.addEventListener('keydown', e=>{ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); openDetail(el.dataset.id);} });
@@ -501,12 +527,12 @@ function openDetail(id){
   if(!app) return;
   document.getElementById('dialogIcon').innerHTML = `<div class="appicon" style="background:${app.color};width:60px;height:60px;border-radius:17px">${app.icon}</div>`;
   document.getElementById('dialogTitle').textContent = app.name;
-  document.getElementById('dialogRepo').textContent = 'github.com/yusukehori/' + app.repo;
+  document.getElementById('dialogRepo').textContent = '配布： yusukehori.github.io（公開用）／ 開発用リポジトリは非公開';
   document.getElementById('dialogTagline').textContent = app.tagline;
   document.getElementById('dialogDesc').textContent = app.desc;
   document.getElementById('dialogFeatures').innerHTML = app.features.map(f=>`<li>${f}</li>`).join('');
-  document.getElementById('dialogGithub').href = app.url;
-  document.getElementById('dialogReleases').href = app.url + '/releases';
+  document.getElementById('dialogDownload').href = RELEASES_URL;
+  document.getElementById('dialogRepoLink').href = PUBLIC_REPO;
   if(typeof dialog.showModal==='function') dialog.showModal(); else dialog.setAttribute('open','');
 }
 function closeDetail(){ if(dialog.open) dialog.close(); }
